@@ -1,4 +1,4 @@
-from board import NPuzzleBoard, NPuzzleCoordinate, NPuzzlePiece
+from board import NPuzzleBoard, NPuzzleCoordinate
 import pdb
 import random 
 import operator
@@ -24,7 +24,8 @@ start = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 # --------------------------------------------------------------------------------------------------
 # board creation
 # --------------------------------------------------------------------------------------------------
-def shufflestart(n=10000):
+def shufflestart(n=1000):
+    """ increasing shuffle count creates harder puzzles. i can't handle 10,000 or more shuffles """
     solution = []
     board = NPuzzleBoard(None, N, start)
     for i in range(0, n):
