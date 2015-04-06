@@ -8,10 +8,11 @@ import copy
 # --------------------------------------------------------------------------------------------------
 class NPuzzleBoard:
     
-    def __init__(self, parent, n, preconfig = None):
+    def __init__(self, parent, n, depth, preconfig = None):
         self.N = n
         self.boardvals = []
         self.parent = parent
+        self.depth = depth
 
         if preconfig:
             for i in range(0, len(preconfig)):
@@ -76,7 +77,7 @@ class NPuzzleBoard:
             newconfig[zeroidx] = newconfig[validx]
             newconfig[validx] = temp
 
-            newboard = NPuzzleBoard(self, self.N, newconfig)
+            newboard = NPuzzleBoard(self, self.N, self.depth + 1, newconfig)
             return newboard
         else:
             return None
